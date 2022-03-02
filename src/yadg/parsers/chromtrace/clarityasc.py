@@ -18,8 +18,6 @@ Exposed metadata:
 .. codeauthor:: Dario Cambie <dario.cambie@mpikg.mpg.de>
 """
 import numpy as np
-import logging
-from uncertainties.core import str_to_number_with_uncert as tuple_fromstr
 
 from yadg.dgutils.dateutils import str_to_uts
 
@@ -108,7 +106,7 @@ def process(fn: str, encoding: str, timezone: str) -> tuple[list, dict]:
     yunit = yunit.strip().rstrip("]")
 
     points = len(lines) - (header_end + 2)
-    x_axis, y_axis = zip(*[l.split() for l in lines[header_end + 2:]])
+    x_axis, y_axis = zip(*[line.split() for line in lines[header_end + 2:]])
     x_axis = np.array(x_axis, dtype=float)
 
     # If time axis is in minute transform to second

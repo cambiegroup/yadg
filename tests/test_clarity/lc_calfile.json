@@ -1,0 +1,16 @@
+{
+    "LC": {
+        "id": 0,
+        "peakdetect": {
+            "window": null,
+            "polyorder": null,
+            "prominence": 1,
+            "threshold": 1
+        },
+        "species": {
+            "a":  {"l": 588.0, "r":  632.0},
+            "b":  {"l": 640.0, "r":  711.0},
+            "c":  {"l": 715.0, "r":  789.0}
+        }
+    }
+}

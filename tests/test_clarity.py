@@ -5,8 +5,6 @@ from tests.utils import (
     standard_datagram_test,
     compare_result_dicts,
 )
-import numpy as np
-import json
 
 
 def special_datagram_test(datagram, testspec):

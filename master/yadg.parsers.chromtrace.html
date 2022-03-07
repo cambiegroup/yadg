@@ -274,14 +274,55 @@ within the archive, concatenating timesteps from multiple files.</p>
 
 </section>
 </section>
+<section id="module-yadg.parsers.chromtrace.clarityasc">
+<span id="yadg-parsers-chromtrace-clarityasc-module"></span><h2>yadg.parsers.chromtrace.clarityasc module<a class="headerlink" href="#module-yadg.parsers.chromtrace.clarityasc" title="Permalink to this headline"></a></h2>
+<p>File parser for ClarityChrom ASCII export files (dat.txt).</p>
+<p>This file format includes one timestep with a single trace in an ASCII file. It
+contains a header section, and a sequence of Y datapoints.</p>
+<section id="id3">
+<h3>Exposed metadata:<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">params</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">sampleid</span><span class="p">:</span><span class="w"> </span><span class="kt">!!str</span><span class="w"></span>
+<span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="kt">!!str</span><span class="w"></span>
+<span class="w">  </span><span class="nt">datafile</span><span class="p">:</span><span class="w"> </span><span class="kt">!!str</span><span class="w"></span>
+<span class="w">  </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="kt">!!str</span><span class="w"></span>
+</pre></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="yadg.parsers.chromtrace.clarityasc.process">
+<span class="sig-prename descclassname"><span class="pre">yadg.parsers.chromtrace.clarityasc.</span></span><span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yadg.parsers.chromtrace.clarityasc.process" title="Permalink to this definition"></a></dt>
+<dd><p>ClarityChrom ASCII export file parser.</p>
+<p>One chromatogram per file with a single trace. A header section is followed by
+y-values for each trace.
+Method name is NOT available :(, nor is the detector name.
+They are assigned their numerical index in the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fn</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Filename to process.</p></li>
+<li><p><strong>encoding</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Encoding used to open the file.</p></li>
+<li><p><strong>timezone</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Timezone information. This should be <code class="docutils literal notranslate"><span class="pre">&quot;localtime&quot;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>([chrom], metadata)</strong> – Standard timesteps &amp; metadata tuple.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple[list, dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
 <section id="module-yadg.parsers.chromtrace.ezchromasc">
 <span id="yadg-parsers-chromtrace-ezchromasc-module"></span><h2>yadg.parsers.chromtrace.ezchromasc module<a class="headerlink" href="#module-yadg.parsers.chromtrace.ezchromasc" title="Permalink to this headline"></a></h2>
 <p>File parser for EZ-Chrom ASCII export files (dat.asc).</p>
 <p>This file format includes one timestep with multiple traces in each ASCII file. It
 contains a header section, and a sequence of Y datapoints for each detector. The X
 axis is uniform between traces, and its units have to be deduced from the header.</p>
-<section id="id3">
-<h3>Exposed metadata:<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h3>
+<section id="id4">
+<h3>Exposed metadata:<a class="headerlink" href="#id4" title="Permalink to this headline"></a></h3>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">params</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">method</span><span class="p">:</span><span class="w">   </span><span class="kt">!!str</span><span class="w"></span>
 <span class="w">  </span><span class="nt">sampleid</span><span class="p">:</span><span class="w"> </span><span class="kt">!!str</span><span class="w"></span>
@@ -329,8 +370,8 @@ in the list of timesteps as a <code class="docutils literal notranslate"><span c
 <p>The detectors in the trace data are not necessarily in a consistent order, which
 may change between different files. Hence, the keys are sorted.</p>
 </div>
-<section id="id4">
-<h3>Exposed metadata:<a class="headerlink" href="#id4" title="Permalink to this headline"></a></h3>
+<section id="id5">
+<h3>Exposed metadata:<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h3>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">params</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">method</span><span class="p">:</span><span class="w">   </span><span class="kt">!!str</span><span class="w"></span>
 <span class="w">  </span><span class="nt">sampleid</span><span class="p">:</span><span class="w"> </span><span class="kt">!!str</span><span class="w"></span>
@@ -372,8 +413,8 @@ detector names, and information about assigned peaks.</p>
 <p>This is a wrapper parser which unzips the provided zip file, and then uses
 the <a class="reference internal" href="#module-yadg.parsers.chromtrace.fusionjson" title="yadg.parsers.chromtrace.fusionjson"><code class="xref py py-mod docutils literal notranslate"><span class="pre">yadg.parsers.chromtrace.fusionjson</span></code></a> parser to parse every data
 file present in the archive.</p>
-<section id="id5">
-<h3>Exposed metadata:<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h3>
+<section id="id6">
+<h3>Exposed metadata:<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h3>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">params</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">method</span><span class="p">:</span><span class="w">   </span><span class="kt">!!str</span><span class="w"></span>
 <span class="w">  </span><span class="nt">sampleid</span><span class="p">:</span><span class="w"> </span><span class="kt">!!str</span><span class="w"></span>
@@ -573,6 +614,7 @@ the peak areas, retention times, and concentrations of the detected species.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;agilent.csv&quot;</span></code> (Agilent Chemstation chromtab csv format),</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;agilent.ch&quot;</span></code> (Agilent OpenLab binary signal file),</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;agilent.dx&quot;</span></code> (Agilent OpenLab binary data archive),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;clarity.asc&quot;</span></code> (ClarityChrom ASCII export),</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;fusion.json&quot;</span></code> (Fusion json file),</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;fusion.zip&quot;</span></code> (Fusion zip file),</p></li>
 </ul>

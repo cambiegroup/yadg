@@ -33,6 +33,14 @@ yadg.parsers.chromtrace.agilentdx module
    :undoc-members:
    :show-inheritance:
 
+yadg.parsers.chromtrace.clarityasc module
+-----------------------------------------
+
+.. automodule:: yadg.parsers.chromtrace.clarityasc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yadg.parsers.chromtrace.ezchromasc module
 -----------------------------------------
 

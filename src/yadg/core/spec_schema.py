@@ -170,6 +170,7 @@ schema_step["any"]["parameters"]["any"].update(
 schema_step["any"]["parameters"]["any"]["tracetype"]["one"].append("ezchrom.asc")
 schema_step["any"]["parameters"]["any"]["tracetype"]["one"].append("fusion.json")
 schema_step["any"]["parameters"]["any"]["tracetype"]["one"].append("fusion.zip")
+schema_step["any"]["parameters"]["any"]["tracetype"]["one"].append("clarity.asc")
 schema_step["any"]["parameters"]["any"]["tracetype"]["one"].append("agilent.ch")
 schema_step["any"]["parameters"]["any"]["tracetype"]["one"].append("agilent.dx")
 schema_step["any"]["parameters"]["any"]["tracetype"]["one"].append("agilent.csv")

@@ -5,6 +5,7 @@ from . import (
     agilentcsv,
     agilentch,
     agilentdx,
+    clarityasc,
     fusionjson,
     fusionzip,
 )
@@ -159,6 +160,7 @@ def process(
         -  ``"agilent.csv"`` (Agilent Chemstation chromtab csv format),
         -  ``"agilent.ch"`` (Agilent OpenLab binary signal file),
         -  ``"agilent.dx"`` (Agilent OpenLab binary data archive),
+        -  ``"clarity.asc"`` (ClarityChrom ASCII export),
         -  ``"fusion.json"`` (Fusion json file),
         -  ``"fusion.zip"`` (Fusion zip file),
 
@@ -191,6 +193,8 @@ def process(
         _data, _meta = agilentdx.process(fn, encoding, timezone)
     elif tracetype == "agilent.ch":
         _data, _meta = agilentch.process(fn, encoding, timezone)
+    elif tracetype == "clarity.asc":
+        _data, _meta = clarityasc.process(fn, encoding, timezone)
     elif tracetype == "fusion.json":
         _data, _meta = fusionjson.process(fn, encoding, timezone)
     elif tracetype == "fusion.zip":
